@@ -1,0 +1,265 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #003366, #00509e);
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+#menu-toggle {
+    display: none; /* Se muestra con media query */
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Layout principal */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Sidebar (Índice) */
+#sidebar {
+    flex: 0 0 280px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+#sidebar h2 {
+    color: #003366;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #00509e;
+    padding-bottom: 0.5rem;
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+#sidebar ul li {
+    margin-bottom: 0.8rem;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s, padding-left 0.3s;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #00509e;
+    padding-left: 5px;
+}
+
+/* Contenido principal */
+#content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 2rem;
+    transition: transform 0.2s;
+}
+
+.card h2 {
+    color: #003366;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #00509e;
+    padding-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.card h3 {
+    color: #00509e;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.card h4 {
+    color: #003366;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.card p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.card ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.card ul li {
+    margin-bottom: 0.4rem;
+}
+
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+.card table th, .card table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.card table th {
+    background-color: #00509e;
+    color: #fff;
+    font-weight: 700;
+}
+
+.card table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #003366;
+    color: #fff;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Estilos para contenido colapsable (opcional, con JS) */
+.collapsible-content {
+    /* Se puede usar para animaciones de despliegue */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* --- DISEÑO RESPONSIVO --- */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #sidebar {
+        flex: none;
+        width: 100%;
+        position: static;
+        max-height: none;
+        margin-bottom: 0;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    #sidebar {
+        display: none; /* Oculto por defecto en móvil */
+    }
+
+    #sidebar.active {
+        display: block; /* Se muestra al hacer clic en el botón */
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    .header-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .header-content p {
+        font-size: 0.85rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card h2 {
+        font-size: 1.3rem;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card h4 {
+        font-size: 1rem;
+    }
+
+    .card table {
+        font-size: 0.85rem;
+    }
+
+    .card table th, .card table td {
+        padding: 6px;
+    }
+}
